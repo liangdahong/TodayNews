@@ -17,7 +17,6 @@ public enum ModalKeyboardTranslation: String, IBEnum {
     switch self {
     case .moveUp:
         frame.origin.y -= keyboardFrame.height
-        break
     case .aboveKeyboard:
         frame.origin.y = keyboardMinY - presentedFrame.height - 20
     case .stickOrMoveUp:
@@ -30,3 +29,7 @@ public enum ModalKeyboardTranslation: String, IBEnum {
     return frame
   }
 }
+
+#if swift(>=4.2)
+extension ModalKeyboardTranslation: CaseIterable {}
+#endif

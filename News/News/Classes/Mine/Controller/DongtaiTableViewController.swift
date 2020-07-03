@@ -122,7 +122,7 @@ class DongtaiTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         SVProgressHUD.configuration()
-        if isIPhoneX { tableView.contentInset = UIEdgeInsetsMake(0, 0, 34, 0) }
+        if isIPhoneX { tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 34, right: 0) }
         tableView.theme_backgroundColor = "colors.cellBackgroundColor"
         tableView.showsVerticalScrollIndicator = false
         tableView.showsHorizontalScrollIndicator = false

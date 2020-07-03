@@ -51,6 +51,6 @@ class RelationRecommendFlowLayout: UICollectionViewFlowLayout {
         scrollDirection = .horizontal
         itemSize = CGSize(width: 142, height: 190)
         minimumLineSpacing = 10
-        sectionInset = UIEdgeInsetsMake(0, 10, 0, 10)
+        sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
     }
 }

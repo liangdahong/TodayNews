@@ -24,7 +24,7 @@ class MyTabBarController: UITabBarController {
     @objc func receiveDayOrNightButtonClicked(notification: Notification) {
         let selected = notification.object as! Bool
         if selected { // 设置为夜间
-            for childController in childViewControllers {
+            for childController in children {
                 switch childController.title! {
                 case "首页":
                     setNightChildController(controller: childController, imageName: "home")
@@ -41,7 +41,7 @@ class MyTabBarController: UITabBarController {
                 }
             }
         } else { // 设置为日间
-            for childController in childViewControllers {
+            for childController in children {
                 switch childController.title! {
                 case "首页":
                     setDayChildController(controller: childController, imageName: "home")
@@ -94,7 +94,7 @@ class MyTabBarController: UITabBarController {
         }
         childController.title = title
         // 添加导航控制器为 TabBarController 的子控制器
-        addChildViewController(MyNavigationController(rootViewController: childController))
+        addChild(MyNavigationController(rootViewController: childController))
     }
     
     deinit {

@@ -34,7 +34,7 @@ class TheyAlsoUseCell: UITableViewCell, RegisterCellFromNib {
         theme_backgroundColor = "colors.cellBackgroundColor"
         bottomView.theme_backgroundColor = "colors.separatorViewColor"
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsetsMake(5, 15, 10, 10)
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 15, bottom: 10, right: 10)
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: 170, height: 215)
         collectionView.collectionViewLayout = layout

@@ -76,38 +76,38 @@ extension HomeViewController {
                     let videoTableVC = VideoTableViewController()
                     videoTableVC.newsTitle = newsTitle
                     videoTableVC.setupRefresh(with: .video)
-                    self.addChildViewController(videoTableVC)
+                    self.addChild(videoTableVC)
                 case .essayJoke:        // 段子
                     let essayJokeVC = HomeJokeViewController()
                     essayJokeVC.isJoke = true
                     essayJokeVC.setupRefresh(with: .essayJoke)
-                    self.addChildViewController(essayJokeVC)
+                    self.addChild(essayJokeVC)
                 case .imagePPMM:        // 街拍
                     let imagePPMMVC = HomeJokeViewController()
                     imagePPMMVC.isJoke = false
                     imagePPMMVC.setupRefresh(with: .imagePPMM)
-                    self.addChildViewController(imagePPMMVC)
+                    self.addChild(imagePPMMVC)
                 case .imageFunny:        // 趣图
                     let imagePPMMVC = HomeJokeViewController()
                     imagePPMMVC.isJoke = false
                     imagePPMMVC.setupRefresh(with: .imageFunny)
-                    self.addChildViewController(imagePPMMVC)
+                    self.addChild(imagePPMMVC)
                 case .photos:           // 图片,组图
                     let homeImageVC = HomeImageViewController()
                     homeImageVC.setupRefresh(with: .photos)
-                    self.addChildViewController(homeImageVC)
+                    self.addChild(homeImageVC)
                 case .jinritemai:       // 特卖
                     let temaiVC = TeMaiViewController()
                     temaiVC.url = "https://m.maila88.com/mailaIndex?mailaAppKey=GDW5NMaKQNz81jtW2Yuw2P"
-                    self.addChildViewController(temaiVC)
+                    self.addChild(temaiVC)
                 default :
                     let homeTableVC = HomeRecommendController()
                     homeTableVC.setupRefresh(with: newsTitle.category)
-                    self.addChildViewController(homeTableVC)
+                    self.addChild(homeTableVC)
                 }
             })
             // 内容视图
-            self.pageContentView = SGPageContentView(frame: CGRect(x: 0, y: newsTitleHeight, width: screenWidth, height: self.view.height - newsTitleHeight), parentVC: self, childVCs: self.childViewControllers)
+            self.pageContentView = SGPageContentView(frame: CGRect(x: 0, y: newsTitleHeight, width: screenWidth, height: self.view.height - newsTitleHeight), parentVC: self, childVCs: self.children)
             self.pageContentView!.delegatePageContentView = self
             self.view.addSubview(self.pageContentView!)
         }

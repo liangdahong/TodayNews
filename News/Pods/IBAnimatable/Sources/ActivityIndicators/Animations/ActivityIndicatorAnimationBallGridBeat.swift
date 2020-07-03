@@ -19,7 +19,7 @@ public class ActivityIndicatorAnimationBallGridBeat: ActivityIndicatorAnimating 
     let x = (layer.bounds.size.width - size.width) / 2
     let y = (layer.bounds.size.height - size.height) / 2
     let durations = [0.96, 0.93, 1.19, 1.13, 1.34, 0.94, 1.2, 0.82, 1.19]
-    let beginTime = CACurrentMediaTime()
+    let beginTime = layer.currentMediaTime
     let beginTimes = [0.36, 0.4, 0.68, 0.41, 0.71, -0.15, -0.12, 0.01, 0.32]
     let animation = defaultAnimation
 
@@ -47,7 +47,7 @@ public class ActivityIndicatorAnimationBallGridBeat: ActivityIndicatorAnimating 
 private extension ActivityIndicatorAnimationBallGridBeat {
 
   var defaultAnimation: CAKeyframeAnimation {
-    let animation = CAKeyframeAnimation(keyPath: "opacity")
+    let animation = CAKeyframeAnimation(keyPath: .opacity)
     animation.keyTimes = [0, 0.5, 1]
     animation.timingFunctionsType = [timingFunction, timingFunction]
     animation.values = [1, 0.7, 1]

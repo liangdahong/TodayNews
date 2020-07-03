@@ -73,7 +73,10 @@ private extension PortalAnimator {
 
     fromView.isHidden = true
 
-    UIView.animate(withDuration: transitionDuration, delay: 0.0, options: .curveEaseOut,
+    UIView.animate(
+      withDuration: transitionDuration,
+      delay: 0.0,
+      options: .curveEaseOut,
       animations: {
         leftHandView.frame = leftHandView.frame.offsetBy(dx: -leftHandView.frame.width, dy: 0.0)
         rightHandView.frame = rightHandView.frame.offsetBy(dx: rightHandView.frame.width, dy: 0.0)
@@ -117,7 +120,10 @@ private extension PortalAnimator {
     rightHandView.frame = (rightHandView.frame.offsetBy(dx: (rightHandView.frame.width), dy: 0))
     containerView.addSubview(rightHandView)
 
-    UIView.animate(withDuration: transitionDuration, delay: 0.0, options: .curveEaseOut,
+    UIView.animate(
+      withDuration: transitionDuration,
+      delay: 0.0,
+      options: .curveEaseOut,
       animations: {
         leftHandView.frame = leftHandView.frame.offsetBy(dx: leftHandView.frame.size.width, dy: 0)
         rightHandView.frame = rightHandView.frame.offsetBy(dx: -rightHandView.frame.size.width, dy: 0)

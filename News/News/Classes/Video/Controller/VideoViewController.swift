@@ -54,10 +54,10 @@ extension VideoViewController {
             _ = $0.compactMap({ (newsTitle) -> () in
                 let videoTableVC = VideoTableViewController()
                 videoTableVC.setupRefresh(with: newsTitle.category)
-                self.addChildViewController(videoTableVC)
+                self.addChild(videoTableVC)
             })
             // 内容视图
-            self.pageContentView = SGPageContentView(frame: CGRect(x: 0, y: newsTitleHeight, width: screenWidth, height: self.view.height - newsTitleHeight), parentVC: self, childVCs: self.childViewControllers)
+            self.pageContentView = SGPageContentView(frame: CGRect(x: 0, y: newsTitleHeight, width: screenWidth, height: self.view.height - newsTitleHeight), parentVC: self, childVCs: self.children)
             self.pageContentView!.delegatePageContentView = self
             self.view.addSubview(self.pageContentView!)
         }

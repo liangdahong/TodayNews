@@ -114,15 +114,15 @@ class PostCommentView: UIView, NibLoadable {
         emojiButton.theme_setImage("images.toolbar_icon_emoji_24x24_", forState: .normal)
         emojiButton.theme_setImage("images.toolbar_icon_keyboard_24x24_", forState: .selected)
         /// 添加通知
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIResponder.keyboardWillShowNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden), name: NSNotification.Name.UIResponder.keyboardWillHideNotification, object: nil)
         collectionView.collectionViewLayout = EmojiLayout()
         collectionView.ym_registerCell(cell: EmojiCollectionCell.self)
     }
     /// 键盘将要弹起
     @objc private func keyboardWillShow(notification: Notification) {
-        let frame = notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! CGRect
-        let duration = notification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! TimeInterval
+        let frame = notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+        let duration = notification.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
         UIView.animate(withDuration: duration) {
             // 改变约束
             self.changeConstraints()
@@ -133,7 +133,7 @@ class PostCommentView: UIView, NibLoadable {
     
     /// 键盘将要隐藏
     @objc private func keyboardWillBeHidden(notification: Notification) {
-        let duration = notification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! TimeInterval
+        let duration = notification.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
         UIView.animate(withDuration: duration) {
             // 重置约束
             self.resetConstraints()

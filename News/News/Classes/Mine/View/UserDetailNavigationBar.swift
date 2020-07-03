@@ -47,7 +47,7 @@ class UserDetailNavigationBar: UIView, NibLoadable {
     }
     
     override var intrinsicContentSize: CGSize {
-        return UILayoutFittingExpandedSize
+        return UIView.layoutFittingExpandedSize
     }
     
     deinit {

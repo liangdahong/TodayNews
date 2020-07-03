@@ -121,24 +121,24 @@ open class AnimatableImageView: UIImageView, CornerDesignable, FillDesignable, B
     }
   }
   // MARK: - BlurDesignable
-  open var blurEffectStyle: UIBlurEffectStyle? {
+  open var blurEffectStyle: UIBlurEffect.Style? {
     didSet {
       configureBlurEffectStyle()
     }
   }
   @IBInspectable var _blurEffectStyle: String? {
     didSet {
-      blurEffectStyle = UIBlurEffectStyle(string: _blurEffectStyle)
+      blurEffectStyle = UIBlurEffect.Style(string: _blurEffectStyle)
     }
   }
-  open var vibrancyEffectStyle: UIBlurEffectStyle? {
+  open var vibrancyEffectStyle: UIBlurEffect.Style? {
     didSet {
       configureBlurEffectStyle()
     }
   }
   @IBInspectable var _vibrancyEffectStyle: String? {
     didSet {
-      vibrancyEffectStyle = UIBlurEffectStyle(string: _vibrancyEffectStyle)
+      vibrancyEffectStyle = UIBlurEffect.Style(string: _vibrancyEffectStyle)
     }
   }
 
@@ -155,6 +155,12 @@ open class AnimatableImageView: UIImageView, CornerDesignable, FillDesignable, B
   @IBInspectable open var toneOpacity: CGFloat = CGFloat.nan
 
   // MARK: - GradientDesignable
+  open var gradientMode: GradientMode = .linear
+  @IBInspectable var _gradientMode: String? {
+    didSet {
+      gradientMode = GradientMode(string: _gradientMode) ?? .linear
+    }
+  }
   @IBInspectable open var startColor: UIColor?
   @IBInspectable open var endColor: UIColor?
   open var predefinedGradient: GradientType?

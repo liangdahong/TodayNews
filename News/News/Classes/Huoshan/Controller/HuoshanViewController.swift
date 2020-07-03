@@ -42,9 +42,9 @@ extension HuoshanViewController {
             _ = $0.compactMap({ (newsTitle) -> () in
                 let categoryVC = HuoshanCategoryController()
                 categoryVC.newsTitle = newsTitle
-                self.addChildViewController(categoryVC)
+                self.addChild(categoryVC)
             })
-            self.pageContentView = SGPageContentView(frame: self.view.bounds, parentVC: self, childVCs: self.childViewControllers)
+            self.pageContentView = SGPageContentView(frame: self.view.bounds, parentVC: self, childVCs: self.children)
             self.pageContentView!.delegatePageContentView = self
             self.view.addSubview(self.pageContentView!)
         }

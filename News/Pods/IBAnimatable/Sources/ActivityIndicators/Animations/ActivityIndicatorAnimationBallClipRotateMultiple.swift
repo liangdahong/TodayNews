@@ -19,17 +19,17 @@ public class ActivityIndicatorAnimationBallClipRotateMultiple: ActivityIndicator
     let longDuration: CFTimeInterval = 1
     let timingFunction: TimingFunctionType = .easeInOut
     let circleLayer1 = makeCircleLayerOf(shape: .ringTwoHalfHorizontal,
-             duration: longDuration,
-             timingFunction: timingFunction,
-             layerSize: layer.frame.size,
-             size: bigCircleSize,
-             color: color, reverse: false)
+                                         duration: longDuration,
+                                         timingFunction: timingFunction,
+                                         layerSize: layer.frame.size,
+                                         size: bigCircleSize,
+                                         color: color, reverse: false)
     let circleLayer2 = makeCircleLayerOf(shape: .ringTwoHalfVertical,
-             duration: longDuration,
-             timingFunction: timingFunction,
-             layerSize: layer.frame.size,
-             size: smallCircleSize,
-             color: color, reverse: true)
+                                         duration: longDuration,
+                                         timingFunction: timingFunction,
+                                         layerSize: layer.frame.size,
+                                         size: smallCircleSize,
+                                         color: color, reverse: true)
     layer.addSublayer(circleLayer1)
     layer.addSublayer(circleLayer2)
   }
@@ -42,14 +42,14 @@ private extension ActivityIndicatorAnimationBallClipRotateMultiple {
 
   func makeAnimation(duration: CFTimeInterval, timingFunction: TimingFunctionType, reverse: Bool) -> CAAnimation {
     // Scale animation
-    let scaleAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
+    let scaleAnimation = CAKeyframeAnimation(keyPath: .scale)
     scaleAnimation.keyTimes = [0, 0.5, 1]
     scaleAnimation.timingFunctionsType = [timingFunction, timingFunction]
     scaleAnimation.values = [1, 0.6, 1]
     scaleAnimation.duration = duration
 
     // Rotate animation
-    let rotateAnimation = CAKeyframeAnimation(keyPath:"transform.rotation.z")
+    let rotateAnimation = CAKeyframeAnimation(keyPath: .rotationZ)
     rotateAnimation.keyTimes = scaleAnimation.keyTimes
     rotateAnimation.timingFunctionsType = [timingFunction, timingFunction]
     if !reverse {
@@ -71,9 +71,12 @@ private extension ActivityIndicatorAnimationBallClipRotateMultiple {
 
   // swiftlint:disable:next function_parameter_count
   func makeCircleLayerOf(shape: ActivityIndicatorShape,
-                         duration: CFTimeInterval, timingFunction: TimingFunctionType,
-                         layerSize: CGSize, size: CGFloat,
-                         color: UIColor, reverse: Bool) -> CALayer {
+                         duration: CFTimeInterval,
+                         timingFunction: TimingFunctionType,
+                         layerSize: CGSize,
+                         size: CGFloat,
+                         color: UIColor,
+                         reverse: Bool) -> CALayer {
     let circleLayer = shape.makeLayer(size: CGSize(width: size, height: size), color: color)
     let frame = CGRect(x: (layerSize.width - size) / 2,
                        y: (layerSize.height - size) / 2,

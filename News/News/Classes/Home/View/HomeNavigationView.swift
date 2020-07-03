@@ -39,7 +39,7 @@ class HomeNavigationView: UIView, NibLoadable {
     
     /// 固有的大小
     override var intrinsicContentSize: CGSize {
-        return UILayoutFittingExpandedSize
+        return UIView.layoutFittingExpandedSize
     }
     
     /// 重写 frame

@@ -95,7 +95,7 @@ class MyConcernFlowLayout: UICollectionViewFlowLayout {
         minimumLineSpacing = 0
         minimumInteritemSpacing = 0
         // cell 上下左右的间距
-        sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         // 设置水平滚动
         scrollDirection = .horizontal
     }

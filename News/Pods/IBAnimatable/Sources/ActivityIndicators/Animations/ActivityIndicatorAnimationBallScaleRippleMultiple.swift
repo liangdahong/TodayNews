@@ -15,29 +15,30 @@ public class ActivityIndicatorAnimationBallScaleRippleMultiple: ActivityIndicato
   // MARK: ActivityIndicatorAnimating
 
   public func configureAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
-        let beginTime = CACurrentMediaTime()
-        let beginTimes = [0.0, 0.2, 0.4]
+    let beginTime = layer.currentMediaTime
+    let beginTimes = [0.0, 0.2, 0.4]
 
-        for i in 0 ..< 3 {
-            let circle = ActivityIndicatorShape.ring.makeLayer(size: size, color: color)
-            let frame = CGRect(x: (layer.bounds.size.width - size.width) / 2,
-                y: (layer.bounds.size.height - size.height) / 2,
-                width: size.width,
-                height: size.height)
+    let animation = defaultAnimation
+    for i in 0 ..< 3 {
+      let circle = ActivityIndicatorShape.ring.makeLayer(size: size, color: color)
+      let frame = CGRect(x: (layer.bounds.size.width - size.width) / 2,
+                         y: (layer.bounds.size.height - size.height) / 2,
+                         width: size.width,
+                         height: size.height)
 
-            animation.beginTime = beginTime + beginTimes[i]
-            circle.frame = frame
-            circle.add(animation, forKey: "animation")
-            layer.addSublayer(circle)
-        }
+      animation.beginTime = beginTime + beginTimes[i]
+      circle.frame = frame
+      circle.add(animation, forKey: "animation")
+      layer.addSublayer(circle)
     }
+  }
 }
 
 // MARK: - Setup
 
 private extension ActivityIndicatorAnimationBallScaleRippleMultiple {
 
-  var animation: CAAnimationGroup {
+  var defaultAnimation: CAAnimationGroup {
     let animation = CAAnimationGroup()
     animation.animations = [scaleAnimation, opacityAnimation]
     animation.duration = duration
@@ -47,7 +48,7 @@ private extension ActivityIndicatorAnimationBallScaleRippleMultiple {
   }
 
   var scaleAnimation: CAKeyframeAnimation {
-    let scaleAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
+    let scaleAnimation = CAKeyframeAnimation(keyPath: .scale)
     scaleAnimation.keyTimes = [0, 0.7]
     scaleAnimation.timingFunction = timingFunction
     scaleAnimation.values = [0, 1.0]
@@ -56,7 +57,7 @@ private extension ActivityIndicatorAnimationBallScaleRippleMultiple {
   }
 
   var opacityAnimation: CAKeyframeAnimation {
-    let opacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
+    let opacityAnimation = CAKeyframeAnimation(keyPath: .opacity)
     opacityAnimation.keyTimes = [0, 0.7, 1]
     opacityAnimation.timingFunctions = [timingFunction, timingFunction]
     opacityAnimation.values = [1, 0.7, 0]

@@ -16,7 +16,7 @@ public protocol BackgroundDesignable: class {
 }
 
 /// Protocol for designing background image
-public protocol BackgroundImageDesignable: class, BackgroundDesignable {
+public protocol BackgroundImageDesignable: BackgroundDesignable {
 
   /**
    * The background image
@@ -27,7 +27,7 @@ public protocol BackgroundImageDesignable: class, BackgroundDesignable {
 
 public extension BackgroundImageDesignable {
 
-  public func configureBackgroundImage() {
+  func configureBackgroundImage() {
     if let image = backgroundImage {
       if let imageView = backgroundView as? UIImageView {
         imageView.image = image
@@ -41,7 +41,7 @@ public extension BackgroundImageDesignable {
     }
   }
 
-  public var backgroundImageView: UIImageView? {
+  var backgroundImageView: UIImageView? {
     get {
       return backgroundView as? UIImageView
     }

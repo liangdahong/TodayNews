@@ -21,7 +21,7 @@ public class ActivityIndicatorAnimationBallPulseSync: ActivityIndicatorAnimating
     circleSize = (size.width - circleSpacing * 2) / 3
     let x = (layer.bounds.size.width - size.width) / 2
     let y = (layer.bounds.size.height - circleSize) / 2
-    let beginTime = CACurrentMediaTime()
+    let beginTime = layer.currentMediaTime
     let beginTimes: [CFTimeInterval] = [0.07, 0.14, 0.21]
     let animation = defaultAnimation
 
@@ -50,7 +50,7 @@ private extension ActivityIndicatorAnimationBallPulseSync {
   var defaultAnimation: CAKeyframeAnimation {
     let deltaY = (size.height / 2 - circleSize / 2) / 2
     let timingFunction: TimingFunctionType = .easeInOut
-    let animation = CAKeyframeAnimation(keyPath: "transform.translation.y")
+    let animation = CAKeyframeAnimation(keyPath: .translationY)
     animation.keyTimes = [0, 0.33, 0.66, 1]
     animation.timingFunctionsType = [timingFunction, timingFunction, timingFunction]
     animation.values = [0, deltaY, -deltaY, 0]

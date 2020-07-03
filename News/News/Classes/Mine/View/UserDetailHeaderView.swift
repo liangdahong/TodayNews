@@ -187,7 +187,7 @@ class UserDetailHeaderView: UIView, NibLoadable {
                     } else {
                         tableView.ym_registerCell(cell: UserDetailDongTaiCell.self)
                     }
-                    if userDetail!.bottom_tab.count == 0 { tableView.contentInset = UIEdgeInsetsMake(0, 0, 34, 0) }
+                    if userDetail!.bottom_tab.count == 0 { tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 34, right: 0) }
                     tableView.delegate = self
                     tableView.dataSource = self
                     tableView.isScrollEnabled = false

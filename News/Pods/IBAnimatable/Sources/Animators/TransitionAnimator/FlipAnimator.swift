@@ -81,7 +81,7 @@ private extension FlipAnimator {
     let flippedSectionOfFromViewShadow = flippedSectionOfFromView.subviews[1]
     flippedSectionOfFromViewShadow.alpha = 0.0
 
-    flippedSectionOfToView = addShadow(to: flippedSectionOfToView, reverse:reverse)
+    flippedSectionOfToView = addShadow(to: flippedSectionOfToView, reverse: reverse)
     let flippedSectionOfToViewShadow = flippedSectionOfToView.subviews[1]
     flippedSectionOfToViewShadow.alpha = 1.0
 
@@ -111,7 +111,7 @@ private extension FlipAnimator {
     rightHandView?.frame = snapshotRegion
     containerView?.addSubview(rightHandView!)
 
-    containerView?.sendSubview(toBack: view)
+    containerView?.sendSubviewToBack(view)
     return [leftHandView!, rightHandView!]
   }
 

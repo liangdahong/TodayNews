@@ -32,7 +32,7 @@ class EmojiLayout: UICollectionViewFlowLayout {
         collectionView?.showsVerticalScrollIndicator = false
         collectionView?.showsHorizontalScrollIndicator = false
         let margin = (collectionView!.height - 3 * emojiItemWidth) * 0.5
-        collectionView?.contentInset = UIEdgeInsetsMake(margin, 0, margin, 0)
+        collectionView?.contentInset = UIEdgeInsets(top: margin, left: 0, bottom: margin, right: 0)
         
         var page = 0
         // item 的个数

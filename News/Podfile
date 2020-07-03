@@ -5,21 +5,26 @@ target 'News' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
+  pod 'RxSwift', '5.1.1'
+  pod 'RxCocoa', '5.1.1'
+
   pod 'Alamofire'
-  pod 'SwiftyJSON'
-  pod 'HandyJSON', '~> 4.1.1'
   pod 'Kingfisher'
-  pod 'IBAnimatable'
-  pod 'SwiftTheme'
-  pod 'RxSwift'
-  pod 'RxCocoa'
-  pod 'SQLite.swift'
+  pod 'SwiftyJSON'
+  pod 'lottie-ios'
+#  pod 'SnapKit'
+
   pod 'SVProgressHUD'
   pod 'MJRefresh'
-  pod 'SGPagingView'
-  pod 'BMPlayer'
-  pod 'FDFullscreenPopGesture'
-  # pod 'Texture'
-  pod 'lottie-ios'
+  pod 'HandyJSON', '5.0.2'
 
+  pod 'IBAnimatable', '6.1.0'
+  pod 'SwiftTheme'
+  pod 'SQLite.swift'
+  pod 'SGPagingView'
+  pod 'BMPlayer', "1.3.2"
+
+  pod 'FDFullscreenPopGesture'
+  
+  # pod 'Texture'
 end

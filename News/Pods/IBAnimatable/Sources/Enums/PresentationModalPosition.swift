@@ -31,7 +31,7 @@ public enum PresentationModalPosition: IBEnum {
       return CGPoint(x: containerFrame.maxX - (modalSize.width / 2), y: yCenter)
     case let .customCenter(point):
       return point
-    case .customOrigin(_):
+    case .customOrigin:
       return nil
     }
   }
@@ -53,14 +53,18 @@ public extension PresentationModalPosition {
 
    - Parameter string: The optional string to be converted into `PresnetationModalPosition`.
    */
-  public init(string: String?) {
+  init(string: String?) {
     guard let string = string else {
       self = .center
       return
     }
 
-    let (name, params) = MaskType.extractNameAndParams(from: string)
-    let point = CGPoint(x: params[safe: 0]?.toDouble() ?? 0, y: params[safe: 1]?.toDouble() ?? 0)
+    guard let (name, params) = string.extractNameAndParams() else {
+      self = .center
+      return
+    }
+
+    let point = CGPoint(x: params.toDouble(0) ?? 0, y: params.toDouble(1) ?? 0)
 
     switch name {
     case "center":
